@@ -1,0 +1,12 @@
+#login-form {
+    display: flex;
+    flex-direction: column; /* Asegúrate de que los elementos fluyan verticalmente */
+    gap: 10px; /* Espacio entre elementos, si lo deseas */
+    width: 100%; /* Asegúrate de que el formulario ocupe todo el ancho disponible */
+    padding: 20px; /* Añade un poco de padding si es necesario */
+}
+
+#login-form button {
+    flex-grow: 1; /* Permite que los botones crezcan para ocupar el espacio disponible */
+    width: 100%; /* Asegúrate de que los botones ocupen todo el ancho disponible */
+}
