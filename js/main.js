@@ -16,7 +16,7 @@ import {
   collection,
   getDocs,
   setDoc,
-  addDoc
+  addDoc,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -35,9 +35,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore();
 const provider = new GoogleAuthProvider();
-export const SaveJugador = (nombre, apellido, edad, email) =>{
-  addDoc(collection(db, 'Jugador'), {nombre, apellido, edad, email});
-}
+export const SaveJugador = (nombre, apellido, edad, email) => {
+  addDoc(collection(db, "Jugador"), { nombre, apellido, edad, email });
+};
+
+export const getJugador = () => getDocs(collection(db, "Jugador"));
 
 // Evento Registrarse
 const SingupForm = document.querySelector("#singup-form");
@@ -145,44 +147,26 @@ const setupPosts = (data) => {
   }
 };
 
-
-/*const btnCrear = document.getElementById("btnCrearJugador");
-btnCrear.addEventListener("click", function () {
-  const jugadorNombre = document.getElementById("jugadorNombre").value;
-  const jugadorApellido = document.getElementById("jugadorApellido").value;
-  const jugadorEdad = document.getElementById("jugadorEdad").value;
-  const jugadorEmail = document.getElementById("jugadorEmail").value;
-
-  /*setDoc(doc(db, "jugadores", jugadorEmail), {
-      nombre: jugadorNombre,
-      apellido: jugadorApellido,
-      edad: jugadorEdad,
-      email: jugadorEmail
-  }).then(() => {
-      console.log("Document successfully written!");
-  })
-  .catch((error) => {
-      console.error("Error writing document: ", error);
-  });
-
-  if (!jugadorEmail || !jugadorNombre || !jugadorApellido || !jugadorEdad) {
-    console.error("One or more variables are undefined or empty");
+const jugadorList = document.getElementById("tablaJugador");
+const setUpJugadores = (data) => {
+  if (data.length) {
+    let html = "";
+    data.forEach((doc) => {
+      const post = doc.data();
+      const td = `
+      <td>${post.nombre}</td>
+      <td>${post.apellido}</td>
+      <td>${post.edad}</td>
+      <td>${post.email}</td>
+            `;
+      html += td;
+    });
+    jugadorList.innerHTML = html;
   } else {
-    collection("jugadores")
-      .set({
-        nombre: jugadorNombre,
-        apellido: jugadorApellido,
-        edad: jugadorEdad,
-        email: jugadorEmail,
-      })
-      .then(() => {
-        console.log("Document successfully written!");
-      })
-      .catch((error) => {
-        console.error("Error writing document: ", error);
-      });
+    jugadorList.innerHTML =
+      '<td class="text-center">Inicia sesion para ver las publicaciones</td>';
   }
-});*/
+};
 
 //Login check
 const loggedOut = document.querySelectorAll(".logged-out");
@@ -206,6 +190,12 @@ onAuthStateChanged(auth, (user) => {
     getDocs(postCollection).then((snapshot) => {
       console.log(snapshot.docs);
       setupPosts(snapshot.docs);
+      loginCheck(user);
+    });
+    const jugadorCollection = collection(db, "Jugador");
+    getDocs(jugadorCollection).then((snapshot) => {
+      console.log(snapshot.docs);
+      setUpJugadores(snapshot.docs);
       loginCheck(user);
     });
   } else {
