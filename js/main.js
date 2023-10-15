@@ -17,6 +17,7 @@ import {
   getDocs,
   setDoc,
   addDoc,
+  onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -40,6 +41,9 @@ export const SaveJugador = (nombre, apellido, edad, email) => {
 };
 
 export const getJugador = () => getDocs(collection(db, "Jugador"));
+
+export const onGetJugador = (callback) => onSnapshot(collection(db, "Jugador"), callback)
+
 
 // Evento Registrarse
 const SingupForm = document.querySelector("#singup-form");
@@ -192,12 +196,6 @@ onAuthStateChanged(auth, (user) => {
       setupPosts(snapshot.docs);
       loginCheck(user);
     });
-    /*const jugadorCollection = collection(db, "Jugador");
-    getDocs(jugadorCollection).then((snapshot) => {
-      console.log(snapshot.docs);
-      setUpJugadores(snapshot.docs);
-      loginCheck(user);
-    });*/
   } else {
     setupPosts([]);
     loginCheck(user);
