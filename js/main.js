@@ -148,7 +148,7 @@ const setupPosts = (data) => {
 };
 
 const jugadorList = document.getElementById("tablaJugador");
-const setUpJugadores = (data) => {
+export const setUpJugadores = (data) => {
   if (data.length) {
     let html = "";
     data.forEach((doc) => {
@@ -192,12 +192,12 @@ onAuthStateChanged(auth, (user) => {
       setupPosts(snapshot.docs);
       loginCheck(user);
     });
-    const jugadorCollection = collection(db, "Jugador");
+    /*const jugadorCollection = collection(db, "Jugador");
     getDocs(jugadorCollection).then((snapshot) => {
       console.log(snapshot.docs);
       setUpJugadores(snapshot.docs);
       loginCheck(user);
-    });
+    });*/
   } else {
     setupPosts([]);
     loginCheck(user);
