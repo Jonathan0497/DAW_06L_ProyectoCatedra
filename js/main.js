@@ -17,7 +17,9 @@ import {
   getDocs,
   setDoc,
   addDoc,
-  onSnapshot
+  onSnapshot,
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -44,6 +46,7 @@ export const getJugador = () => getDocs(collection(db, "Jugador"));
 
 export const onGetJugador = (callback) => onSnapshot(collection(db, "Jugador"), callback)
 
+export const deleteJugador = id => deleteDoc(doc(db, "Jugador", id));
 
 // Evento Registrarse
 const SingupForm = document.querySelector("#singup-form");

@@ -1,4 +1,4 @@
-import { SaveJugador, getJugador } from "./main.js";
+import { SaveJugador, getJugador, deleteJugador } from "./main.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
     const jugadorList = document.getElementById("tablaJugador");
@@ -18,8 +18,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
     const btnDelete = jugadorList.querySelectorAll(".btn-deleteJugador");
     btnDelete.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        console.log("delete");
+      btn.addEventListener("click", ({target: {dataset}}) => {
+        deleteJugador(dataset.id)
       });
     });
   });
