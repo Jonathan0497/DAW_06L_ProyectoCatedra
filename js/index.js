@@ -5,6 +5,7 @@ function ValidacionJugador() {
   const apellidoJug = document.getElementById('jugadorApellido').value;
   const edadJug = document.getElementById('jugadorEdad').value;
   const emailJug = document.getElementById('jugadorEmail').value;
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
   if (!isNaN(nombreJug) || nombreJug.trim() === "") {
     alert("Debe ingresar un nombre para el jugador");
@@ -16,14 +17,12 @@ function ValidacionJugador() {
     return false;
   }
 
-  if(isNaN(edadJug) || edadJug.trim() === ""){
+  if (isNaN(edadJug) || edadJug.trim() === "" || edadJug <= 0) {
     alert("Debe ingresar una edad para el jugador");
     return false;
   }
 
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
-  if(!emailRegex.test(emailJug)) {
+  if (!emailRegex.test(emailJug)) {
     alert("Debe ingresar un email valido");
     return false;
   }
@@ -60,6 +59,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 JugadorForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (ValidacionJugador()) {
+    const nombreJug = document.getElementById("jugadorNombre").value;
+    const apellidoJug = document.getElementById("jugadorApellido").value;
+    const edadJug = document.getElementById("jugadorEdad").value;
     const emailJug = document.getElementById("jugadorEmail").value;
 
     if (await emailExists(emailJug)) {
@@ -67,10 +69,6 @@ JugadorForm.addEventListener("submit", async (e) => {
       return;
     }
     console.log("Enviado");
-
-    const nombreJug = document.getElementById("jugadorNombre").value;
-    const apellidoJug = document.getElementById("jugadorApellido").value;
-    const edadJug = document.getElementById("jugadorEdad").value;
 
     SaveJugador(nombreJug, apellidoJug, edadJug, emailJug);
 
