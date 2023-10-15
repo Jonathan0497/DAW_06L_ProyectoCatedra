@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="container">
-        <form>
+        <form id="Jugador-Form">
             <div class="mb-3">
                 <label for="jugadorNombre" class="form-label">Nombre del jugador</label>
                 <input type="text" class="form-control" id="jugadorNombre" name="jugadorNombre" required>
@@ -65,9 +65,8 @@
             </div>
             <br>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-primary" onclick="CrearJugador()" id="btnCrearJugador">Crear Jugador</button>
+                <button type="submit" class="btn btn-primary" id="btnCrearJugador">Crear Jugador</button>
             </div>
-
         </form>
     </div>
 
@@ -133,6 +132,7 @@
         crossorigin="anonymous"></script>
     <!--FireBase Scripts-->
     <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/index.js"></script>
 
 </body>
 

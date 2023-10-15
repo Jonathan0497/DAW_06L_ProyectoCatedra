@@ -15,6 +15,7 @@ import {
   getFirestore,
   collection,
   getDocs,
+  setDoc,
   addDoc
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
@@ -32,8 +33,11 @@ const firebaseConfig = {
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
+const db = getFirestore();
 const provider = new GoogleAuthProvider();
+export const SaveJugador = (nombre, apellido, edad, email) =>{
+  addDoc(collection(db, 'Jugador'), {nombre, apellido, edad, email});
+}
 
 // Evento Registrarse
 const SingupForm = document.querySelector("#singup-form");
@@ -141,33 +145,44 @@ const setupPosts = (data) => {
   }
 };
 
-class Jugador {
-  constructor(nombre, apellido, edad, email) {
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.edad = edad;
-    this.email = email;
-  }
-}
 
-const btnCrear = document.getElementById("btnCrearJugador");
+/*const btnCrear = document.getElementById("btnCrearJugador");
+btnCrear.addEventListener("click", function () {
+  const jugadorNombre = document.getElementById("jugadorNombre").value;
+  const jugadorApellido = document.getElementById("jugadorApellido").value;
+  const jugadorEdad = document.getElementById("jugadorEdad").value;
+  const jugadorEmail = document.getElementById("jugadorEmail").value;
 
-function CrearJugador() {
-    
-    const jugadorNombre = document.getElementById("jugadorNombre")
-    const jugadorApellido = document.getElementById("jugadorApellido")
-    const jugadorEdad = document.getElementById("jugadorEdad")
-    const jugadorEmail = document.getElementById("jugadorEmail")
+  /*setDoc(doc(db, "jugadores", jugadorEmail), {
+      nombre: jugadorNombre,
+      apellido: jugadorApellido,
+      edad: jugadorEdad,
+      email: jugadorEmail
+  }).then(() => {
+      console.log("Document successfully written!");
+  })
+  .catch((error) => {
+      console.error("Error writing document: ", error);
+  });
 
-  
-    setDoc(doc(db, "jugador"), {
+  if (!jugadorEmail || !jugadorNombre || !jugadorApellido || !jugadorEdad) {
+    console.error("One or more variables are undefined or empty");
+  } else {
+    collection("jugadores")
+      .set({
         nombre: jugadorNombre,
         apellido: jugadorApellido,
         edad: jugadorEdad,
-        email: jugadorEmail
+        email: jugadorEmail,
+      })
+      .then(() => {
+        console.log("Document successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
       });
   }
-
+});*/
 
 //Login check
 const loggedOut = document.querySelectorAll(".logged-out");
