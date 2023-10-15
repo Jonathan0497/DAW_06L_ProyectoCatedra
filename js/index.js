@@ -31,6 +31,13 @@ function ValidacionJugador() {
   return true;
 }
 
+async function emailExists(email) {
+  const jugadorCollection = collection(db, "Jugador");
+  const query = query(jugadorCollection, where("email", "==", email));
+  const querySnapshot = await getDocs(query);
+  return !querySnapshot.empty;
+}
+
 window.addEventListener("DOMContentLoaded", async () => {
   const jugadorList = document.getElementById("tablaJugador");
 
@@ -50,15 +57,20 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 const JugadorForm = document.getElementById("Jugador-Form");
 
-JugadorForm.addEventListener("submit", (e) => {
+JugadorForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (ValidacionJugador()) {
+    const emailJug = document.getElementById("jugadorEmail").value;
+
+    if (await emailExists(emailJug)) {
+      alert("Este correo electrónico ya está registrado");
+      return;
+    }
     console.log("Enviado");
 
     const nombreJug = document.getElementById("jugadorNombre").value;
     const apellidoJug = document.getElementById("jugadorApellido").value;
     const edadJug = document.getElementById("jugadorEdad").value;
-    const emailJug = document.getElementById("jugadorEmail").value;
 
     SaveJugador(nombreJug, apellidoJug, edadJug, emailJug);
 
