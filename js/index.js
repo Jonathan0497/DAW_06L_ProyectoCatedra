@@ -32,4 +32,5 @@ JugadorForm.addEventListener("submit", (e) => {
   SaveJugador(nombreJug, apellidoJug, edadJug, emailJug);
 
   JugadorForm.reset();
+  window.onload();
 });
