@@ -1,4 +1,4 @@
-import { SaveJugador, getJugador } from "./main.js";
+import { SaveJugador, getJugador, db, collection, query, where, getDocs } from "./main.js";
 
 function ValidacionJugador() {
   const nombreJug = document.getElementById('jugadorNombre').value;
@@ -30,11 +30,12 @@ function ValidacionJugador() {
 
   return true;
 }
-
+const JugadorForm = document.getElementById("Jugador-Form");
 async function emailExists(email) {
   const jugadorCollection = collection(db, "Jugador");
-  const query = query(jugadorCollection, where("email", "==", email));
-  const querySnapshot = await getDocs(query);
+  const query2 = query(jugadorCollection, where("email", "==", email));
+  const querySnapshot = await getDocs(query2);
+  JugadorForm.reset();
   return !querySnapshot.empty;
 }
 
@@ -55,7 +56,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-const JugadorForm = document.getElementById("Jugador-Form");
 
 JugadorForm.addEventListener("submit", async (e) => {
   e.preventDefault();

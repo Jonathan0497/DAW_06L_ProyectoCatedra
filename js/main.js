@@ -17,6 +17,8 @@ import {
   getDocs,
   setDoc,
   addDoc,
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -40,6 +42,13 @@ export const SaveJugador = (nombre, apellido, edad, email) => {
 };
 
 export const getJugador = () => getDocs(collection(db, "Jugador"));
+
+export {
+  collection,
+  db,
+  query,
+  where, getDocs
+}
 
 // Evento Registrarse
 const SingupForm = document.querySelector("#singup-form");
