@@ -21,14 +21,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav"> <!-- Esta lista está alineada a la izquierda por defecto -->
+                    
+                </ul>
+                <ul class="navbar-nav ms-auto"> <!-- Esta lista está alineada a la derecha -->
                     <li class="nav-item logged-out" style="display: none;">
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#SinginModal">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item logged-out" style="display: none;">
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#SingupModal">Registrarse</a>
                     </li>
-                    <li class="nav-item ml-auto logged-in" style="display: none;">
+                    <li class="nav-item logged-in" style="display: none;">
                         <a class="nav-link" href="#" id="logout">Cerrar Sesión</a>
                     </li>
                 </ul>
