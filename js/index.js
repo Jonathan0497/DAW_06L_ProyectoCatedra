@@ -119,6 +119,7 @@ JugadorForm.addEventListener("submit", async (e) => {
         email: emailJug,
         nombre: nombreJug,
       });
+      JugadorForm.reset();
     }
   }
 });

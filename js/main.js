@@ -139,28 +139,6 @@ googleButton.addEventListener("click", (e) => {
     });
 });
 
-//Publicaciones
-const postsList = document.querySelector(".posts");
-const setupPosts = (data) => {
-  if (data.length) {
-    let html = "";
-    data.forEach((doc) => {
-      const post = doc.data();
-      const li = `
-                <li class="list-group-item list-group-item-action">
-                    <h5>${post.Title}</h5>
-                    <p>${post.Descripcion}</p>
-                </li>
-            `;
-      html += li;
-    });
-    postsList.innerHTML = html;
-  } else {
-    postsList.innerHTML =
-      '<p class="text-center">Inicia sesion para ver las publicaciones</p>';
-  }
-};
-
 const jugadorList = document.getElementById("tablaJugador");
 export const setUpJugadores = (data) => {
   if (data.length) {
@@ -200,14 +178,8 @@ const loginCheck = (user) => {
 //Listar si el usuario esta autenticado
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    const postCollection = collection(db, "Post");
-    getDocs(postCollection).then((snapshot) => {
-      console.log(snapshot.docs);
-      setupPosts(snapshot.docs);
-      loginCheck(user);
-    });
+    loginCheck(user);
   } else {
-    setupPosts([]);
     loginCheck(user);
   }
 });
