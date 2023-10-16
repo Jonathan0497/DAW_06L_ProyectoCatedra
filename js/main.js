@@ -20,6 +20,8 @@ import {
   onSnapshot,
   deleteDoc,
   doc,
+  query,
+  where,
   updateDoc
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
@@ -50,6 +52,8 @@ export const onGetJugador = (callback) => onSnapshot(collection(db, "Jugador"), 
 export const deleteJugador = id => deleteDoc(doc(db, "Jugador", id));
 
 export const updateJugador = (id, newFields) => updateDoc(doc(db, "Jugador", id), newFields);
+
+export {db,collection,query,where,getDocs}
 
 // Evento Registrarse
 const SingupForm = document.querySelector("#singup-form");
