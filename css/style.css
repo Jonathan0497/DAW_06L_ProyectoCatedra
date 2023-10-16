@@ -1,0 +1,53 @@
+#login-form {
+    display: flex;
+    flex-direction: column; /* Asegúrate de que los elementos fluyan verticalmente */
+    gap: 10px; /* Espacio entre elementos, si lo deseas */
+    width: 100%; /* Asegúrate de que el formulario ocupe todo el ancho disponible */
+    padding: 20px; /* Añade un poco de padding si es necesario */
+}
+
+#login-form button {
+    flex-grow: 1; /* Permite que los botones crezcan para ocupar el espacio disponible */
+    width: 100%; /* Asegúrate de que los botones ocupen todo el ancho disponible */
+}
+
+.Titulo{
+    text-align: center;
+    margin-bottom: 0;
+    padding-top: 20px;
+}
+/* Estilos para el footer */
+footer {
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px 0; 
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos en los extremos horizontalmente */
+    flex-wrap: wrap;
+}
+
+.footer-content p {
+    flex: 1; /* Hace que el párrafo tome todo el ancho disponible en pantallas pequeñas */
+    text-align: center; /* Centra el texto del párrafo horizontalmente */
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-content ul li a {
+    text-decoration: none;
+    color: #fff;
+}
