@@ -53,7 +53,17 @@ export const deleteJugador = id => deleteDoc(doc(db, "Jugador", id));
 
 export const updateJugador = (id, newFields) => updateDoc(doc(db, "Jugador", id), newFields);
 
-export {db,collection,query,where,getDocs}
+export { db, collection, query, where, getDocs }
+
+//CRUD Torneos
+export const SaveTorneos = (nombre, cantidadJugadores, estado, fechaInicio, direccion) => {
+  addDoc(collection(db, "Torneo"), { nombre, cantidadJugadores, estado, fechaInicio, direccion });
+};
+
+export const onGetTorneo = (callback) => onSnapshot(collection(db, "Torneo"), callback)
+export const deleteTorneo = id => deleteDoc(doc(db, "Torneo", id));
+
+export const updateTorneo = (id, newFields) => updateDoc(doc(db, "Torneo", id), newFields);
 
 // Evento Registrarse
 const SingupForm = document.querySelector("#singup-form");
