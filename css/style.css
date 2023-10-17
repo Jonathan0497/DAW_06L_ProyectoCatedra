@@ -70,3 +70,16 @@ footer {
     margin-right: 5px; 
 }
 
+.negro {
+    color:black;
+    /* font-size: 72px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 10px; 
+    display: inline-block; */
+}
+
+.justified-text {
+    text-align: justify;
+}
+
