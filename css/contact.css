@@ -1,0 +1,85 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eaeaea;
+    background-image: url('https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Aquí puedes agregar la imagen de fondo */
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+.header {
+    margin-bottom: 30px; 
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #4a4a4a;
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact-container {
+    max-width: 650px; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 40px 80px; 
+}
+
+.text-center {
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 15px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.contact-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+strong {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    color: #333;
+    margin-right: 20px;
+}
+
+a {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #eff0f1;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    color: #128C7E;
+    background-color: #ddd;
+}
+
+
