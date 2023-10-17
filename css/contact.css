@@ -1,24 +1,23 @@
-body {
+.body-style {
     font-family: 'Arial', sans-serif;
     background-color: #eaeaea;
-    background-image: url('https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Aquí puedes agregar la imagen de fondo */
-    background-size: cover; 
+    background-image: url('https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; 
 }
 
-.header {
+.header-style {
     margin-bottom: 30px; 
 }
 
-.header h1 {
+.header-title {
     font-size: 2.5rem;
     color: #4a4a4a;
     background-color: rgba(255, 255, 255, 0.7); 
@@ -26,7 +25,7 @@ body {
     border-radius: 10px;
 }
 
-.contact-container {
+.container-style {
     max-width: 650px; 
     background-color: rgba(255, 255, 255, 0.9); 
     border-radius: 10px;
@@ -34,25 +33,25 @@ body {
     padding: 40px 80px; 
 }
 
-.text-center {
+.text-center-style {
     margin-bottom: 25px;
     border-bottom: 2px solid #f1f1f1;
     padding-bottom: 15px;
 }
 
-ul {
+.list-style {
     padding: 0;
     list-style-type: none;
     text-align: left;
 }
 
-li {
+.list-item-style {
     display: flex;
     align-items: center;
     margin: 20px 0;
 }
 
-.contact-image {
+.image-style {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -60,14 +59,14 @@ li {
     object-fit: cover;
 }
 
-strong {
+.name-style {
     flex-grow: 1;
     font-size: 1.1rem;
     color: #333;
     margin-right: 20px;
 }
 
-a {
+.link-style {
     color: #000000;
     font-weight: bold;
     text-decoration: none;
@@ -77,9 +76,51 @@ a {
     transition: background-color 0.3s;
 }
 
-a:hover {
+.link-hover-style:hover {
     color: #128C7E;
     background-color: #ddd;
+}
+
+/* footer estilo */
+
+/* Estilos para el footer */
+footer {
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px 0; 
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px; 
+}
+
+.footer-content p {
+    text-align: center;
+    font-size: 20px;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+    display: flex; 
+    gap: 10px; 
+    justify-content: center; 
+}
+
+.footer-content ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-content ul li a {
+    text-decoration: none;
+    color: #fff;
 }
 
 
