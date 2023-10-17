@@ -106,7 +106,8 @@ TorneoForm.addEventListener("submit", async (e) => {
                 estado: estadoTorneo,
                 fechaInicio: FechaInicioTorneo,
                 direccion: DireccionTorneo
-            })
+            });
+            TorneoForm.reset();
         }
     }
 })
