@@ -120,6 +120,7 @@ logout.addEventListener("click", (e) => {
   e.preventDefault();
   signOut(auth).then(() => {
     console.log("sing out");
+    window.location.href = "../html/index.html";
   });
 });
 
