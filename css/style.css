@@ -51,3 +51,17 @@ footer {
     text-decoration: none;
     color: #fff;
 }
+
+/* Estilos de los iconos */
+.fas.fa-table-tennis {
+    font-size: 1.2em;
+    color: white;
+    margin-right: 5px; 
+}
+
+.fas.fa-user {
+    font-size: 1.2em;
+    color: white;
+    margin-right: 5px; 
+}
+
