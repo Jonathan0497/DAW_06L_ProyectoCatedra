@@ -1,0 +1,79 @@
+.slider {
+    padding-top: 3%;
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 400%;
+	
+	animation: cambio 20s infinite alternate linear;
+}
+
+.slider li {
+	width: 100%;
+	list-style: none;
+}
+
+.slider img {
+	width: 100%;
+    height: 794px;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+
+/* Estilos para el contenedor "Crear" */
+
+.Crear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 45%;
+    margin-bottom: 1%;
+    width: 200px; /* Ancho deseado del contenedor */
+    height: 40px; /* Altura deseada del contenedor */
+    background-color: #007bff; /* Color de fondo inicial */
+    color: #fff; /* Color del texto */
+    border: 1px solid #007bff; /* Borde para simular un botón */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición de color de fondo en hover */
+    text-align: center; /* Alineación del texto al centro */
+    font-size: 18px; /* Tamaño de letra deseado */
+}*/
+
+/* Estilo de hover */
+.Crear:hover {
+    background-color: #0056b3; /* Cambio de color de fondo en hover */
+}
+
+/* Estilos para el texto en el centro */
+.Crear p {
+    margin: 0;
+    padding: 0;
+}
+
+.Crear a {
+    text-decoration: none; 
+    color: #fff; 
+}
+
+.Crear a:hover {
+    text-decoration: underline;
+    color: #fff; 
+}
