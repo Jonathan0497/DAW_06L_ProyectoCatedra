@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="stylesheet" href="../css/contact.css">
+  <!--Boostrap 5-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="body-style">
+
+  <!--Nav-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><i class="fas fa-table-tennis"></i> Ping Pong</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav"> <!-- Esta lista está alineada a la izquierda por defecto -->
+          <li class="nav-item logged-in" style="display: none;">
+            <a class="navbar-brand" href="Jugadores.html"><i class="fas fa-user"></i> Jugadores</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto"> <!-- Esta lista está alineada a la derecha -->
+          <!-- Porfavor no quitar la clase logged-out -->
+          <li class="nav-item logged-out" style="display: none;">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#SinginModal">Iniciar
+              Sesión</a>
+          </li>
+          <!-- Porfavor no quitar la clase logged-out -->
+          <li class="nav-item logged-out" style="display: none;">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#SingupModal">Registrarse</a>
+          </li>
+          <!-- Porfavor no quitar la clase logged-in -->
+          <li class="nav-item logged-in" style="display: none;">
+            <a class="nav-link" href="#" id="logout">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <main class="d-flex align-items-center justify-content-center flex-column">
+    <div class="header-style">
+      <h1 class="header-title">Contáctanos</h1>
+    </div>
+
+    <div class="container-style">
+      <h2 class="text-center-style">Nuestro Equipo</h2>
+      <ul class="list-style">
+        <li class="list-item-style">
+          <img src="../img/Jenny.jpg" alt="Jennifer Beltran" class="image-style">
+          <strong class="name-style">Jennifer Beltran</strong> <a href="https://wa.me/+50370820073" target="_blank"
+            class="link-style">+503 7082-0073</a>
+        </li>
+        <li class="list-item-style">
+          <img src="../img/Jona.jpg" alt="Jonathan Olano" class="image-style">
+          <strong class="name-style">Jonathan Olano</strong> <a href="https://wa.me/+50372022904" target="_blank"
+            class="link-style">+503 7202-2904</a>
+        </li>
+        <li class="list-item-style">
+          <img src="../img/Kevs.jpg" alt="Kevin Ramirez" class="image-style">
+          <strong class="name-style">Kevin Ramirez</strong> <a href="https://wa.me/+50363041696" target="_blank"
+            class="link-style">+503 6304-1696</a>
+        </li>
+        <li class="list-item-style">
+          <img src="../img/Carlos2.jpg" alt="Carlos Villalobos" class="image-style">
+          <strong class="name-style">Carlos Villalobos</strong> <a href="https://wa.me/+50363012546" target="_blank"
+            class="link-style">+503 6301-2546</a>
+        </li>
+        <li class="list-item-style">
+          <img src="../img/Sebs.jpg" alt="Sebastian Donovan" class="image-style">
+          <strong class="name-style">Sebastian Donovan</strong> <a href="https://wa.me/+50376023970" target="_blank"
+            class="link-style">+503 7602-3970</a>
+        </li>
+      </ul>
+    </div>
+  </main>
+  <br>
+
+  <!-- Modal Singup -->
+  <div class="modal fade" id="SingupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registrate</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" id="singup-form">
+            <div class="form-group">
+              <input type="text" id="singup-email" class="form-control" placeholder="Email" required>
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="password" id="singup-password" class="form-control" placeholder="Password" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Singup</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Singin -->
+  <div class="modal fade" id="SinginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" id="login-form">
+            <div class="form-group">
+              <input type="text" id="login-email" class="form-control" placeholder="Email" required>
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="password" id="login-password" class="form-control" placeholder="Password" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block">Inicia Sesion</button>
+            <button type="button" class="btn btn-info btn-block" id="googleLogin">Inicia Sesion con
+              Google</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>©Proyecto de catedra - 2023 </p>
+      <ul>
+        <li><a href="contactanos.html">CONTACTANOS</a></li>
+        <li><a href="https://github.com/Jonathan0497/DAW_06L_ProyectoCatedra">GITHUB</a></li>
+        <li><a href="https://trello.com/b/czwVuYXC/proyecto-daw-catedra">TRELLO</a></li>
+      </ul>
+    </div>
+  </footer>
+    <!--FireBase Scripts-->
+    <script type="module" src="../js/main.js"></script>
+</body>
+
+</html>
