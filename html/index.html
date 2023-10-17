@@ -18,14 +18,15 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html"><i class="fas fa-table-tennis"></i> Ping Pong</a>
-            <a class="navbar-brand" href="Jugadores.html"><i class="fas fa-user"></i> Jugadores</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav"> <!-- Esta lista está alineada a la izquierda por defecto -->
-
+                    <li class="nav-item logged-in" style="display: none;">
+                        <a class="navbar-brand" href="Jugadores.html"><i class="fas fa-user"></i> Jugadores</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto"> <!-- Esta lista está alineada a la derecha -->
                     <!-- Porfavor no quitar la clase logged-out -->
