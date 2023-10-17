@@ -63,20 +63,20 @@
                         </select>
                     </div>
                     <div class="col-sm-12 col-lg-12 col-md-12">
-                        <label for="CantidadJugadoresTorneos" class="form-label">Estado Torneo</label>
-                        <select class="form-select" id="CantidadJugadoresTorneos" aria-label="Default select example">
-                            <option value="Proximo" selected>Proximo</option>
-                            <option value="Finalizado">Finalizado</option>
-                            <option value="En curso">En curso</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-12 col-lg-12 col-md-12">
                         <label for="FechaInicioTorneo" class="form-label">Fecha de Inicio</label>
                         <input type="date" class="form-control" id="FechaInicioTorneo" name="FechaInicioTorneo">
                     </div>
                     <div class="col-sm-12 col-lg-12 col-md-12">
                         <label for="DireccionTorneo" class="form-label">Direccion</label>
                         <input type="text" class="form-control" id="DireccionTorneo" name="DireccionTorneo">
+                    </div>
+                    <div class="col-sm-12 col-lg-12 col-md-12">
+                        <label for="estadoTorneo" class="form-label">Estado Torneo</label>
+                        <select type="hidden" class="form-select" id="estadoTorneo" aria-label="Default select example">
+                            <option value="Proximo" selected>Proximo</option>
+                            <option value="Finalizado">Finalizado</option>
+                            <option value="En curso">En curso</option>
+                        </select>
                     </div>
                     <br>
                     <div class="d-grid gap-2 col-6 mx-auto">
@@ -95,9 +95,10 @@
                     <thead class="table-dark table-striped">
                         <tr>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Edad</th>
-                            <th>Email</th>
+                            <th>Cantidad de Jugadores</th>
+                            <th>Estado</th>
+                            <th>Fecha de inicio</th>
+                            <th>Direccion</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
 
@@ -110,6 +111,61 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Singup -->
+    <div class="modal fade" id="SingupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="singup-form">
+                        <div class="form-group">
+                            <input type="text" id="singup-email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input type="password" id="singup-password" class="form-control" placeholder="Password"
+                                required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Singup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Singin -->
+    <div class="modal fade" id="SinginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="login-form">
+                        <div class="form-group">
+                            <input type="text" id="login-email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input type="password" id="login-password" class="form-control" placeholder="Password"
+                                required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-block">Inicia Sesion</button>
+                        <button type="button" class="btn btn-info btn-block" id="googleLogin">Inicia Sesion con
+                            Google</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--Boostrap Script-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
