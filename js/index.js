@@ -34,7 +34,7 @@ function ValidacionJugador() {
   }
 
   if (!emailRegex.test(emailJug)) {
-    alert("Debe ingresar un email valido");
+    alert("Debe ingresar un e-mail valido");
     return false;
   }
 

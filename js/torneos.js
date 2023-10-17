@@ -1,14 +1,8 @@
 import {
     SaveTorneos,
-    getJugador,
     deleteTorneo,
     updateTorneo,
-    onGetTorneo,
-    db,
-    collection,
-    query,
-    where,
-    getDocs,
+    onGetTorneo
 } from "./main.js";
 
 function ValidacionTorneo() {
