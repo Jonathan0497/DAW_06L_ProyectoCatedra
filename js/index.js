@@ -8,6 +8,8 @@ import {
   collection,
   query,
   where,
+  onAuthStateChanged,
+  auth,
   getDocs
 } from "./main.js";
 
@@ -52,7 +54,15 @@ async function emailExists(email) {
 const jugadorList = document.getElementById("tablaJugador");
 
 window.addEventListener("DOMContentLoaded", async () => {
-  //const querySnapshot = await getJugador();
+  //Events
+  //Listar si el usuario esta autenticado
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      
+    } else {
+      window.location.href = "../html/index.html";
+    }
+  });
 
   onGetJugador((querySnapshot) => {
     jugadorList.innerHTML = "";

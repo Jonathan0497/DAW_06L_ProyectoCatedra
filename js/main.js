@@ -8,7 +8,7 @@ import {
   signOut,
   onAuthStateChanged,
   signInWithPopup,
-  GoogleAuthProvider,
+  GoogleAuthProvider
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 //FireStore import
 import {
@@ -38,7 +38,7 @@ const firebaseConfig = {
 
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const db = getFirestore();
 const provider = new GoogleAuthProvider();
 export const SaveJugador = (nombre, apellido, edad, email) => {
@@ -53,7 +53,7 @@ export const deleteJugador = id => deleteDoc(doc(db, "Jugador", id));
 
 export const updateJugador = (id, newFields) => updateDoc(doc(db, "Jugador", id), newFields);
 
-export { db, collection, query, where, getDocs }
+export { db, collection, query, where, getDocs, onAuthStateChanged }
 
 //CRUD Torneos
 export const SaveTorneos = (nombre, cantidadJugadores, estado, fechaInicio, direccion) => {

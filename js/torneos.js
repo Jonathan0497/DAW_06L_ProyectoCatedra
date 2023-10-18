@@ -2,7 +2,9 @@ import {
     SaveTorneos,
     deleteTorneo,
     updateTorneo,
-    onGetTorneo
+    onGetTorneo,
+    onAuthStateChanged,
+    auth
 } from "./main.js";
 
 function ValidacionTorneo() {
@@ -24,6 +26,13 @@ function ValidacionTorneo() {
 
 const torneoList = document.getElementById("tablaTorneo");
 window.addEventListener("DOMContentLoaded", async () => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          
+        } else {
+          window.location.href = "../html/index.html";
+        }
+      });
     onGetTorneo((querySnapshot) => {
         torneoList.innerHTML = "";
         querySnapshot.forEach((doc) => {
