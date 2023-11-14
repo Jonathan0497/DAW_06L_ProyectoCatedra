@@ -65,6 +65,17 @@ export const deleteTorneo = id => deleteDoc(doc(db, "Torneo", id));
 
 export const updateTorneo = (id, newFields) => updateDoc(doc(db, "Torneo", id), newFields);
 
+//Crud Partidos
+export const SavePartidos = (nombreJugador1, nombreJugador2, nombreTorneo, fechaEmision, horaInicio, nombreGanador, resultadoJug1, resultadoJug2) => {
+  addDoc(collection(db, "Partidos"), {nombreJugador1, nombreJugador2, nombreTorneo, fechaEmision, horaInicio, nombreGanador, resultadoJug1, resultadoJug2} );
+}
+
+export const deletePartido = id => deleteDoc(doc(db, "Partidos", id));
+
+export const updatePartido = (id, newFields) => updateDoc(doc(db, "Partidos", id), newFields);
+
+export const onGetPartido = (callback) => onSnapshot(collection(db, "Partidos"), callback)
+
 // Evento Registrarse
 const SingupForm = document.querySelector("#singup-form");
 
