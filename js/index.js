@@ -21,23 +21,23 @@ function ValidacionJugador() {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
   if (!isNaN(nombreJug) || nombreJug.trim() === "") {
-    alert("Debe ingresar un nombre para el jugador");
-    return false;
+      Swal.fire("Error", "Debe ingresar un nombre para el jugador", "error");
+      return false;
   }
 
   if (!isNaN(apellidoJug) || apellidoJug.trim() === "") {
-    alert("Debe ingresar un apellido para el jugador");
-    return false;
+      Swal.fire("Error", "Debe ingresar un apellido para el jugador", "error");
+      return false;
   }
 
   if (isNaN(edadJug) || edadJug.trim() === "" || edadJug <= 0) {
-    alert("Debe ingresar una edad para el jugador");
-    return false;
+      Swal.fire("Error", "Debe ingresar una edad válida para el jugador", "error");
+      return false;
   }
 
   if (!emailRegex.test(emailJug)) {
-    alert("Debe ingresar un e-mail valido");
-    return false;
+      Swal.fire("Error", "Debe ingresar un e-mail válido", "error");
+      return false;
   }
 
   return true;
@@ -87,6 +87,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     btnDelete.forEach((btn) => {
       btn.addEventListener("click", ({ target: { dataset } }) => {
         deleteJugador(dataset.id);
+        Swal.fire("Eliminado", "Jugador eliminado con éxito", "success");
       });
     });
 
@@ -118,10 +119,11 @@ JugadorForm.addEventListener("submit", async (e) => {
 
     if (idJugador === "") {
       if (await emailExists(emailJug)) {
-        alert("Este correo electrónico ya está registrado");
+        Swal.fire("Error", "Este correo electrónico ya está registrado", "error");
         return;
       }
       SaveJugador(nombreJug, apellidoJug, edadJug, emailJug);
+      Swal.fire("Guardado", "Jugador guardado con éxito", "success");
     } else {
       updateJugador(idJugador, {
         apellido: apellidoJug,
@@ -129,7 +131,9 @@ JugadorForm.addEventListener("submit", async (e) => {
         email: emailJug,
         nombre: nombreJug,
       });
-      JugadorForm.reset();
+      Swal.fire("Actualizado", "Jugador actualizado con éxito", "success");
     }
+
+    JugadorForm.reset();
   }
 });

@@ -7,17 +7,28 @@ import {
     auth
 } from "./main.js";
 
+// SweetAlert CDN incluido en tu archivo HTML
+// <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 function ValidacionTorneo() {
     const TorneoNombre = document.getElementById('TorneoNombre').value;
     const DireccionTorneo = document.getElementById('DireccionTorneo').value;
 
     if (!isNaN(TorneoNombre) || TorneoNombre.trim() === "") {
-        alert("Debe ingresar un nombre para el torneo");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe ingresar un nombre para el torneo'
+        });
         return false;
     }
 
     if (!isNaN(DireccionTorneo) || DireccionTorneo.trim() === "") {
-        alert("Debe ingresar una dirección para el torneo");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe ingresar una dirección para el torneo'
+        });
         return false;
     }
 
@@ -58,18 +69,20 @@ window.addEventListener("DOMContentLoaded", async () => {
         btnDelete.forEach((btn) => {
             btn.addEventListener("click", ({ target: { dataset } }) => {
                 deleteTorneo(dataset.id);
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Hecho!',
+                    text: 'Torneo eliminado con éxito'
+                });
             });
         });
         const btnEdit = torneoList.querySelectorAll(".btn-editTorneo");
         btnEdit.forEach((btn) => {
             btn.addEventListener("click", ({ target: { dataset } }) => {
-
                 document.getElementById("id_torneo").value = dataset.id;
                 document.getElementById("TorneoNombre").value = dataset.nombre;
-                console.log(dataset.cantidadJugadores);
                 document.getElementById("CantidadJugadoresTorneos").value = dataset.cantidadjugadores;
                 document.getElementById("estadoTorneo").value = dataset.estado;
-                console.log(dataset.fechaInicio);
                 document.getElementById("FechaInicioTorneo").value = dataset.fechainicio;
                 document.getElementById("DireccionTorneo").value = dataset.direccion;
             });
@@ -83,11 +96,19 @@ TorneoForm.addEventListener("submit", async (e) => {
     const selectedValue = document.getElementById('CantidadJugadoresTorneos').value;
     const fechaInicio = document.getElementById('FechaInicioTorneo').value;
     if (selectedValue !== "4" && selectedValue !== "8" && selectedValue !== "12") {
-        alert('Por favor, seleccione 4, 8 o 12 jugadores');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Por favor, seleccione 4, 8 o 12 jugadores'
+        });
         return;
     }
     if (!fechaInicio) {
-        alert('Por favor, ingrese una fecha de inicio');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Por favor, ingrese una fecha de inicio'
+        });
         return;
     }
 
@@ -100,8 +121,12 @@ TorneoForm.addEventListener("submit", async (e) => {
         const DireccionTorneo = document.getElementById("DireccionTorneo").value;
 
         if (id_torneo === '') {
-            SaveTorneos(TorneoNombre, CantidadJugadoresTorneos, estadoTorneo, FechaInicioTorneo, DireccionTorneo)
-            console.log(TorneoNombre, CantidadJugadoresTorneos, estadoTorneo, FechaInicioTorneo, DireccionTorneo)
+            SaveTorneos(TorneoNombre, CantidadJugadoresTorneos, estadoTorneo, FechaInicioTorneo, DireccionTorneo);
+            Swal.fire({
+                icon: 'success',
+                title: '¡Hecho!',
+                text: 'Torneo agregado con éxito'
+            });
         } else {
             updateTorneo(id_torneo, {
                 nombre: TorneoNombre,
@@ -111,6 +136,11 @@ TorneoForm.addEventListener("submit", async (e) => {
                 direccion: DireccionTorneo
             });
             TorneoForm.reset();
+            Swal.fire({
+                icon: 'success',
+                title: '¡Hecho!',
+                text: 'Torneo actualizado con éxito'
+            });
         }
     }
-})
+});

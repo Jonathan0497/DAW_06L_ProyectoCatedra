@@ -123,6 +123,11 @@ window.addEventListener("DOMContentLoaded", async () => {
         btnDelete.forEach((btn) => {
             btn.addEventListener("click", ({ target: { dataset } }) => {
                 deletePartido(dataset.id);
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Hecho!',
+                    text: 'Partido eliminado con éxito'
+                });
             });
         });
     
@@ -166,7 +171,11 @@ PartidosForm.addEventListener("submit", function(event) {
     // Verificar si se trata de un nuevo partido
     if (idPartidos === '') {
         SavePartidos(nombreJugador1, nombreJugador2, nombreTorneo, fechaEmision, horaInicio, nombreGanador, resultadoJug1, resultadoJug2);
-        console.log(nombreJugador1, nombreJugador2, nombreTorneo, fechaEmision, horaInicio, nombreGanador, resultadoJug1, resultadoJug2);
+        Swal.fire({
+            icon: 'success',
+            title: '¡Hecho!',
+            text: 'Partido guardado con éxito'
+        });
     } else {
         updatePartido(idPartidos, {
             nombreTorneo,
@@ -177,6 +186,11 @@ PartidosForm.addEventListener("submit", function(event) {
             nombreGanador,
             resultadoJug1,
             resultadoJug2
+        });
+        Swal.fire({
+            icon: 'success',
+            title: '¡Hecho!',
+            text: 'Partido actualizado con éxito'
         });
     }
 
