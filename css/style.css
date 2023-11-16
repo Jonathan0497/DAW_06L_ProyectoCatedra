@@ -17,46 +17,6 @@
     padding-top: 20px;
 }
 
-/* Estilos para el footer */
-footer {
-    background-color: #333; 
-    color: #fff; 
-    padding: 20px 0; 
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 1200px; 
-    margin: 0 auto; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    gap: 10px; 
-}
-
-.footer-content p {
-    text-align: center;
-    font-size: 20px;
-}
-
-.footer-content ul {
-    list-style: none;
-    padding: 0;
-    display: flex; 
-    gap: 10px; 
-    justify-content: center; 
-}
-
-.footer-content ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-.footer-content ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
 /* Estilos de los iconos */
 .fas.fa-table-tennis {
     font-size: 1.2em;
@@ -86,5 +46,19 @@ footer {
 .card-img-custom {
     height: 300px; 
     object-fit: cover; 
+}
+
+html {
+    height: 100%;
+}
+
+body { 
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+footer {
+    margin-top: auto;
 }
 
